@@ -8,7 +8,7 @@ import com.onlineshop.badion.model.Customer;
 public interface CustomerDao {
 
 	public void addCustomer(Customer customer);
-	public void removeCustomer(int id);
+	public void removeCustomer(Customer customer);
 	public List<Customer> listCustomer();
 	public void updateCustomer(Customer customer);
 	public Customer getCustomerById(int id);

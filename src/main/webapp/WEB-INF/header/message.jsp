@@ -22,6 +22,6 @@ setTimeout(function() {
  		</div>
  	</c:when>
  </c:choose>
-
-
+ 
+ 	
  

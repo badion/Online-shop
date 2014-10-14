@@ -7,8 +7,10 @@ import com.onlineshop.badion.model.Product;
 
 public interface ProductDao {
 	public void addProduct(Product product);
-	public void removeProduct(int id);
+	public void removeProduct(Product product);
 	public List<Product> listProducts();
 	public void updateProduct(Product product);
-	public Customer getProductById(int id);
+	public List<Product> getProductByIdGroup(Integer id);
+	public Product getProductByName(String name);
+	public Product getProductById(int id);
 }

@@ -6,7 +6,7 @@
         <id column="id" name="id" type="java.lang.Integer">
         	<generator class="increment"></generator>
         </id>
-        <property column="id_role" name="idRole" type="java.lang.Integer" />
+        <property column="id_role" name="idRole" unique="false" type="java.lang.Integer" />
         <property column="locked" name="locked" type="java.lang.Boolean" />
         <property column="fname" name="firstName" type="java.lang.String" />
         <property column="lname" name="lastName" type="java.lang.String" />
@@ -16,13 +16,5 @@
         <property column="password" name="password" type="java.lang.String" />
         <property column="email_confirm" name="emailConfirmed" type="java.lang.Boolean" />
       
-      	<sql-query name="getCustomerByLogin">
-	        <return alias="customer" class="com.onlineshop.badion.model.Customer" />
-        	<![CDATA[select * from customer where login = :login]]>
-    	</sql-query>
-    	<sql-query name="getCustomerByEmail">
-	        <return alias="customer" class="com.onlineshop.badion.model.Customer" />
-        	<![CDATA[select * from customer where email = :email]]>
-    	</sql-query>
     </class>
 </hibernate-mapping>

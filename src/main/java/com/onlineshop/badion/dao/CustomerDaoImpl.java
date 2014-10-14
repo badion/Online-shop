@@ -12,7 +12,7 @@ import org.hibernate.transform.Transformers;
 import com.onlineshop.badion.model.Customer;
 import com.onlineshop.badion.utils.HibernateUtil;
 
-public class CustomerDaoImpl implements CustomerDao {
+public class CustomerDaoImpl extends AbstractBaseDao implements CustomerDao {
 
 	private SessionFactory sessionFactory;
 	
@@ -21,8 +21,8 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 	
 	public void addCustomer(Customer customer) {
-	
-		sessionFactory = new Configuration().configure().buildSessionFactory();
+		super.add(customer);
+		/*sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		Transaction transaction = null;
 		try {
@@ -40,29 +40,16 @@ public class CustomerDaoImpl implements CustomerDao {
 			session.close();
 			
 		}
-	}
+*/	}
 	
-	public void removeCustomer(int id) {
-		Session session = this.sessionFactory.getCurrentSession();
-		Customer customer = (Customer) session.load(Customer.class, new Integer(id));
-		
-		if(customer != null) {
-			session.delete(customer);
-		}
-	}
 
 	public List<Customer> listCustomer() {
-		Session session = this.sessionFactory.getCurrentSession();
-		List<Customer> customerList = session.createQuery("from customer").list();
-		
-		for(Customer customer : customerList) {
-			System.out.println("Customer list" + customer);
-		}
-		return customerList;
+		return (List<Customer>) super.getAll(Customer.class);
 	}
 
 	public void updateCustomer(Customer customer) {
-		Transaction transaction = null;
+		super.update(customer);
+		/*	Transaction transaction = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
 			transaction = session.beginTransaction();
@@ -76,12 +63,14 @@ public class CustomerDaoImpl implements CustomerDao {
 		} finally {
 			session.flush();
 			session.close();
-		}
+		}*/
 	
 	}
 
 	public Customer getCustomerById(int id) {
-		Session session = HibernateUtil.getSessionFactory().openSession();
+		return (Customer) super.getById(Customer.class, id);
+		
+		/*Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
 		Customer customer = null;
 		try {
@@ -96,23 +85,9 @@ public class CustomerDaoImpl implements CustomerDao {
 			session.flush();
 			session.close();
 		}
-		return customer;
+		return customer;*/
 	}
 
-
-	
-		/*Customer customer = (Customer) session.load(Customer.class, login);
-		try {
-			transaction = session.beginTransaction();
-		} catch (RuntimeException e) {
-			if (transaction != null) {
-				transaction.rollback();
-			}
-			e.printStackTrace();
-		} finally {
-			session.flush();
-			session.close();
-		}*/
 
 	public Customer getCustomerByEmail(String email) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -123,13 +98,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			String hbrnQuery = "FROM Customer WHERE email = :email";
 			Query query = session.createQuery(hbrnQuery);
 			query.setString("email", email);
-			//list = query2.list();
 			customer = (Customer) query.uniqueResult();
-			//customer = (Customer) query2.setResultTransformer(Transformers.aliasToBean(Customer.class));
-			// String queryString =
-			// "select * from customer where login = :login";
-			// Query query = session.createQuery(queryString);
-		//("getCustomerByLogin");
 		
 		} catch (RuntimeException e) {
 			e.printStackTrace();
@@ -141,19 +110,15 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 	public Customer getCustomerByLogin(String login) {
+		Transaction transaction = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
+		transaction = session.beginTransaction();
 		Customer customer = null;
-		List<Customer> list = null;
 		try {
 			String hbrnQuery = "FROM Customer WHERE login = :login";
 			Query query = session.createQuery(hbrnQuery);
 			query.setString("login", login);
 			customer = (Customer) query.uniqueResult();
-			//customer = (Customer) query2.setResultTransformer(Transformers.aliasToBean(Customer.class));
-			// String queryString =
-			// "select * from customer where login = :login";
-			// Query query = session.createQuery(queryString);
-		//("getCustomerByLogin");
 		
 		} catch (RuntimeException e) {
 			e.printStackTrace();
@@ -163,5 +128,9 @@ public class CustomerDaoImpl implements CustomerDao {
 			
 		}
 		return customer;
+	}
+
+	public void removeCustomer(Customer customer) {
+		super.remove(customer);
 	}
 }

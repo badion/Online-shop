@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app>
-	<display-name>AdvocateSystem</display-name>
+	<display-name>OnlineShop</display-name>
 	<welcome-file-list>
 		<welcome-file>home</welcome-file>
 	</welcome-file-list>
@@ -36,6 +36,34 @@
 		<servlet-name>AuthorizationServlet</servlet-name>
 		<servlet-class>com.onlineshop.badion.servlet.AuthorizationServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>MainCategories</display-name>
+		<servlet-name>MainCategories</servlet-name>
+		<servlet-class>com.onlineshop.badion.servlet.MainCategories</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ProductFromCategoryServlet</display-name>
+		<servlet-name>ProductFromCategoryServlet</servlet-name>
+		<servlet-class>com.onlineshop.badion.servlet.ProductFromCategoryServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ShoppingCartServlet</display-name>
+		<servlet-name>ShoppingCartServlet</servlet-name>
+		<servlet-class>com.onlineshop.badion.servlet.ShoppingCartServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ClearCart</display-name>
+		<servlet-name>ClearCart</servlet-name>
+		<servlet-class>com.onlineshop.badion.servlet.ClearCart</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomePageServlet</servlet-name>
 		<url-pattern>/home</url-pattern>
@@ -47,5 +75,21 @@
 	<servlet-mapping>
 		<servlet-name>AuthorizationServlet</servlet-name>
 		<url-pattern>/authorization</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MainCategories</servlet-name>
+		<url-pattern>/mainCategories</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProductFromCategoryServlet</servlet-name>
+		<url-pattern>/contentFromCategory</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ShoppingCartServlet</servlet-name>
+		<url-pattern>/shoppingCart</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ClearCart</servlet-name>
+		<url-pattern>/clearCart</url-pattern>
 	</servlet-mapping>
 </web-app>

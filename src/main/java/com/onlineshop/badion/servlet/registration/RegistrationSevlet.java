@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
+import com.onlineshop.badion.dao.CustomerDaoImpl;
 import com.onlineshop.badion.model.Customer;
 import com.onlineshop.badion.model.Role;
 import com.onlineshop.badion.model.message.MailMessage;
@@ -141,7 +142,7 @@ public class RegistrationSevlet extends HttpServlet {
 		if (canCreate) {
 			customerCheck.setFirstName(firstName);
 			customerCheck.setLastName(lastName);
-			customerCheck.setRole(Role.getByName("customer"));
+		//	customerCheck.setRole(Role.getByName("customer"));
 			customerCheck.setIdRole(1);
 			customerCheck.setEmail(email);
 			customerCheck.setLogin(login);
@@ -156,7 +157,6 @@ public class RegistrationSevlet extends HttpServlet {
 
 			LOG.debug("login success");
 		
-			
 				/**
 				 * Sending mail.. 
 				 */

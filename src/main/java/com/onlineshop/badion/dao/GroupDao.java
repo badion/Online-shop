@@ -3,13 +3,14 @@ package com.onlineshop.badion.dao;
 import java.util.List;
 
 import com.onlineshop.badion.model.Customer;
-import com.onlineshop.badion.model.Group;
+import com.onlineshop.badion.model.Groupp;
 
 public interface GroupDao {
 
-	public void addGroup(Group group);
-	public void removeGroup(int id);
-	public List<Group> listGroups();
-	public void updateGroup(Group group);
-	public Customer getGroupById(int id);
+	public void addGroup(Groupp group);
+	public void removeGroup(Groupp group);
+	public List<Groupp> listGroups();
+	public void updateGroup(Groupp group);
+	public Groupp getGroupById(int id);
+	public Groupp getGroupByName(String name);
 }
