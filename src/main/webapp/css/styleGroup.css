@@ -1,0 +1,57 @@
+
+.service{
+	border: 2px;
+	border-radius:10px;
+	box-shadow: 0 0 15px 5px #a3a3a3;
+	padding:13px 15px 6px 15px;	
+}
+
+.service_central{
+	width:390px;
+	margin:0 auto;
+	padding:22px 35px 10px 35px;
+	margin-bottom:30px;	
+}
+
+.service_left{
+	float:left;
+	width:373px;	
+}
+.service_right{
+	float:right;
+	width:373px;	
+}
+.thumbnail{  
+  position: relative;  
+  z-index: 0;  
+  }  
+  .thumbnail:hover{  
+  background-color: transparent;  
+  z-index: 50;  
+  }  
+  .thumbnail span{ /*CSS for enlarged image*/  
+  position: absolute;  
+  background-color: #3d3d3d;  
+  padding: 5px;  
+  left: -1000px;  
+  border: 1px solid white;  
+  visibility: hidden;  
+  color: Yellow;  
+  text-decoration: none;  
+  border-radius: 4px 4px 4px 4px;  
+  -moz-border-radius: 4px 4px 4px 4px;  
+  -webkit-border-radius: 4px 4px 4px 4px;  
+  }  
+  .thumbnail span img{ /*CSS for enlarged image*/  
+  border-width: 0;  
+  padding: 2px;  
+  }  
+  .thumbnail:hover span{ /*CSS for enlarged image on hover*/  
+  visibility: visible;  
+  top: 0;  
+  left: 60px; /*position where enlarged image should offset horizontally */  
+  }  
+  
+  .success {
+  
+  }
