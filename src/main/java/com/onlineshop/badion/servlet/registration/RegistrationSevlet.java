@@ -10,14 +10,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import org.apache.log4j.Logger;
 
-import com.onlineshop.badion.dao.CustomerDaoImpl;
 import com.onlineshop.badion.model.Customer;
-import com.onlineshop.badion.model.Role;
-import com.onlineshop.badion.model.message.MailMessage;
 import com.onlineshop.badion.model.message.SendHTMLEmail;
 import com.onlineshop.badion.service.CustomerServiceImpl;
 import com.onlineshop.badion.servlet.registration.FullUrl;
@@ -26,7 +21,6 @@ import com.onlineshop.badion.utils.KeyEncryption;
 public class RegistrationSevlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	public final static Logger LOG = Logger.getLogger(RegistrationSevlet.class);
 	public static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile(
 			"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",
 			Pattern.CASE_INSENSITIVE);
@@ -36,10 +30,10 @@ public class RegistrationSevlet extends HttpServlet {
 			Pattern.CASE_INSENSITIVE);
 
 	public static final Pattern VALID_USER = Pattern.compile(
-			"/^[a-ˇ≥ø∫¿-ﬂ≤Ø™a-zA-Z_-]+$/", Pattern.CASE_INSENSITIVE);
+			"/^[a-—è—ñ—ó—î–ê-–Ø–Ü–á–Ña-zA-Z_-]+$/", Pattern.CASE_INSENSITIVE);
 
 	public static final Pattern VALID_LOGIN_REGEX = Pattern.compile(
-			"^[a-ˇ≥ø∫¿-ﬂ≤Ø™a-zA-Z0-9_-]+$",
+			"^[a-—è—ñ—ó—î–ê-–Ø–Ü–á–Ña-zA-Z0-9_-]+$",
 			Pattern.CASE_INSENSITIVE);
 	
 	private boolean validation(HttpServletRequest request,
@@ -95,7 +89,6 @@ public class RegistrationSevlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession(true);
 		StringBuilder msg = new StringBuilder();
 		StringBuilder loginned = new StringBuilder();
 
@@ -126,7 +119,6 @@ public class RegistrationSevlet extends HttpServlet {
 		if(validate(request, response, msg)) {
 			if (customerLogin != null) {
 				if (login.equals(customerLogin.getLogin())) {
-					System.out.println("login from input " + login + " login from db" + customerLogin.getLogin());
 					canCreate = false;
 			}
 		}
@@ -134,7 +126,6 @@ public class RegistrationSevlet extends HttpServlet {
 		if (customerMail != null) {
 			System.out.println(customerMail);
 			if (email.equals(customerMail.getEmail())) {
-				System.out.println(customerMail);
 				canCreate = false;
 			}
 		}
@@ -142,7 +133,6 @@ public class RegistrationSevlet extends HttpServlet {
 		if (canCreate) {
 			customerCheck.setFirstName(firstName);
 			customerCheck.setLastName(lastName);
-		//	customerCheck.setRole(Role.getByName("customer"));
 			customerCheck.setIdRole(1);
 			customerCheck.setEmail(email);
 			customerCheck.setLogin(login);
@@ -155,8 +145,6 @@ public class RegistrationSevlet extends HttpServlet {
 			System.out.println(customerCheck.getId());
 			customerCheck.setPassword(password);
 
-			LOG.debug("login success");
-		
 				/**
 				 * Sending mail.. 
 				 */

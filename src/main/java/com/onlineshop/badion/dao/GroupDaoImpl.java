@@ -22,23 +22,6 @@ public class GroupDaoImpl extends AbstractBaseDao implements GroupDao {
 
 	public List<Groupp> listGroups() {
 		return (List<Groupp>) super.getAll(Groupp.class);
-	/*	List<Groupp> groupList = null;
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		Transaction transaction = null;
-		
-		try {
-			transaction = session.beginTransaction();
-			Query query = session.createQuery("FROM Groupp");
-			groupList = query.list();
-			transaction.commit();
-		} catch (HibernateException e) {
-			e.printStackTrace();
-		}
-		
-		for(Groupp group : groupList) {
-			System.out.println("Group list" + group);
-		}
-		return groupList;*/
 	}
 
 	public void updateGroup(Groupp group) {

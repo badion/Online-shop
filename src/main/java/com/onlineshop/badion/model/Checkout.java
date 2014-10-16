@@ -1,8 +1,6 @@
 package com.onlineshop.badion.model;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Checkout {
 
@@ -11,8 +9,7 @@ public class Checkout {
 	private Date date;
 	private Double priceSum;
 	private String orderStatus;
-	//private Set<Product> product = new HashSet<Product>(0);
-	
+
 	public Checkout(Integer id, Integer idCustomer, Date date, Double priceSum,
 			String orderStatus) {
 		super();
@@ -21,16 +18,7 @@ public class Checkout {
 		this.date = date;
 		this.priceSum = priceSum;
 		this.orderStatus = orderStatus;
-		//this.product = product;
 	}
-
-	/*public Set<Product> getProduct() {
-		return product;
-	}
-
-	public void setProduct(Set<Product> product) {
-		this.product = product;
-	}*/
 
 	public Integer getId() {
 		return id;
@@ -80,6 +68,5 @@ public class Checkout {
 	public String toString() {
 		return "Checkout [id=" + id + ", idCustomer=" + idCustomer + ", date="
 				+ date + ", priceSum=" + priceSum + ", orderStatus=";
-			//	+ orderStatus + ", product=" + product + "]";
 	}
 }

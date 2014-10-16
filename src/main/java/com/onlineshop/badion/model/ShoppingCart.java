@@ -1,6 +1,5 @@
 package com.onlineshop.badion.model;
 
-import java.util.List;
 
 public class ShoppingCart {
 	
@@ -13,9 +12,10 @@ public class ShoppingCart {
 	private Integer idCheckout;
 	private Integer idGroup;
 	private Integer idCustomer;
+	private String date;
 	
 	public ShoppingCart(Integer idCheckoutProduct, String name,
-			String description, Double price, Double totalPrice,
+			String description, Double price, Double totalPrice, String date,
 			Integer idCustomer, Integer idProduct, Integer idCheckout, Integer quantity, Integer idGroup) {
 		super();
 		this.idCustomer = idCustomer;
@@ -28,8 +28,16 @@ public class ShoppingCart {
 		this.idCheckout = idCheckout;
 		this.quantity = quantity;
 		this.idGroup = idGroup;
+		this.date = date;
 	}
 	
+	public String getDate() {
+		return date;
+	}
+	
+	public void setDate(String date) {
+		this.date = date;
+	}
 	public Integer getIdCustomer() {
 		return idCustomer;
 	}
@@ -60,7 +68,8 @@ public class ShoppingCart {
 				+ ", idProduct=" + idProduct + ", idCheckout=" + idCheckout
 				+ ", quantity=" + quantity
 				+ ", idGroup= " + idGroup
-				+ ", idCustomer= " + idCustomer + "]";
+				+ ", idCustomer= " + idCustomer 
+				+ ", date= " + date + "]";
 	}	
 	public Integer getIdCheckoutProduct() {
 		return idCheckoutProduct;

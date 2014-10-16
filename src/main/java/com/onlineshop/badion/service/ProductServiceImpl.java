@@ -2,10 +2,8 @@ package com.onlineshop.badion.service;
 
 import java.util.List;
 
-import org.hibernate.Session;
 
 import com.onlineshop.badion.dao.ProductDaoImpl;
-import com.onlineshop.badion.model.Groupp;
 import com.onlineshop.badion.model.Product;
 
 public class ProductServiceImpl implements ProductService {

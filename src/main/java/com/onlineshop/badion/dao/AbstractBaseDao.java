@@ -6,7 +6,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.onlineshop.badion.model.Customer;
 import com.onlineshop.badion.utils.HibernateUtil;
 
 public class AbstractBaseDao {

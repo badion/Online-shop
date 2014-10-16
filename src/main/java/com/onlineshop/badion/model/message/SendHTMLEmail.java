@@ -37,14 +37,14 @@ public class SendHTMLEmail {
 		String subject = "Підтвердження надсилання заявки";
 
 		// message contains HTML markups
-		String href = serverUrl.substring(0,serverUrl.length()-12)+"/confirm"
+		String href = serverUrl.substring(0,serverUrl.length()-12)+"confirm"
 				+ "?id="
 				+ customer.getId();
 		System.out.println(href);
 		
-		String message ="Вітаємo! Ви створюєте заявку на безкоштовну консультацію" + "<br>" + "Вашt ім'я : " + customer.getLogin()
-				+ "<br>" + "для підтвердження насилання перейдіть по даному посиланню  "+" <a href='"
-				+ href + "'>"+" підтвердження надсилання заявки "+"</a>"+ "<br>" + "Приємної роботи " + "<br>" + "Команда розробників.";
+		String message ="Hi, you have registrated on our online shop." + "<br>" + "You name is : " + customer.getLogin()
+				+ "<br>" + "For confirm, please click on the link below. "+" <a href='"
+				+ href + "'>"+" confirm send request "+"</a>"+ "<br>" + "Best regards " + "<br>" + "Badion.";
 		sendHtmlEmail(host, port, mailFrom, password, mailTo, subject, message);
 		return true;
 	}

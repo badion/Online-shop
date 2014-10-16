@@ -21,8 +21,7 @@
 <body>
 	<jsp:include page="../header/header.jsp"></jsp:include>
 	<br>
-	<br>
-	
+	<div class="main_wraper">
 	<div class="container">
 	<jsp:include page="../header/message.jsp"></jsp:include>
 		<c:if test="${groups.size() == null}"> 
@@ -34,8 +33,8 @@
 			<div class="service service_left">
 				<form action="" method="post">
 							<center><h2>${groups.get(groupsOfProduct).name}</h2></center>
-							<center><img src="../../OnlineShop/images/${groups.get(groupsOfProduct).name}.jpg"/></center>
-							<center><a class="btn btn-default" href="contentFromCategory?name=${groups.get(groupsOfProduct).name}" type="button">Open ${groups.get(groupsOfProduct).name} catalog</a></center>
+							<center><img src="../../OnlineShop/images/${groups.get(groupsOfProduct).name}.png" width="250" height="150"/></center>
+							<center><a class="btn btn-success" href="contentFromCategory?name=${groups.get(groupsOfProduct).name}" type="button">Open ${groups.get(groupsOfProduct).name} catalog</a></center>
 				</form>
 			</div>
 			</c:if>
@@ -43,8 +42,8 @@
 			<div class="service service_left">
 					<form action="" method="post">
 							<center><h2>${groups.get(groupsOfProduct).name}</h2></center>
-							<center><img src="../../OnlineShop/images/${groups.get(groupsOfProduct).name}.jpg"/></center>
-							<center><a class="btn btn-default" href="contentFromCategory?name=${groups.get(groupsOfProduct).name}" type="button">Open ${groups.get(groupsOfProduct).name} catalog</a></center>
+							<center><img src="../../OnlineShop/images/${groups.get(groupsOfProduct).name}.png"  width="250" height="150"/></center>
+							<center><a class="btn btn-success" href="contentFromCategory?name=${groups.get(groupsOfProduct).name}" type="button">Open ${groups.get(groupsOfProduct).name} catalog</a></center>
 				</form>
 			</div>
 			</c:if>
@@ -52,12 +51,13 @@
 			<div class="service service_left">
 					<form action="" method="post">
 							<center><h2>${groups.get(groupsOfProduct).name}</h2></center>
-							<center><img src="../../OnlineShop/images/${groups.get(groupsOfProduct).name}.jpg"/></center>
-							<center><a class="btn btn-default" href="contentFromCategory?name=${groups.get(groupsOfProduct).name}" type="button">Open ${groups.get(groupsOfProduct).name} catalog</a></center>
+							<center><img src="../../OnlineShop/images/${groups.get(groupsOfProduct).name}.png"  width="250" height="150"/></center>
+							<center><a class="btn btn-success" href="contentFromCategory?name=${groups.get(groupsOfProduct).name}" type="button">Open ${groups.get(groupsOfProduct).name} catalog</a></center>
 					</form>
 			</div>
 			</c:if>
 		</c:forEach>
 		</div>
 		<jsp:include page="../footer/footer.jsp" />
+		</div>
 </html>

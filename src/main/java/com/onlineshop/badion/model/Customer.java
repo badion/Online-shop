@@ -1,20 +1,5 @@
 package com.onlineshop.badion.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-
-import com.sun.istack.internal.NotNull;
-
-@Table(name="Ñustomer", uniqueConstraints = {
-		@UniqueConstraint(columnNames = "id"),
-		@UniqueConstraint(columnNames = "email"),
-		@UniqueConstraint(columnNames = "login") 
-})
 public class Customer {
 	
 	public Customer() {
@@ -38,12 +23,18 @@ public class Customer {
 		this.phone = phone;
 	}
 
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Basic(optional = false)
-	@Column(name = "id", unique = true, nullable = false)
+	private Integer idRole;
+	private Boolean locked;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String login;
+	private String password;
+	private Role role;
+	private Boolean emailConfirmed;
+	private String phone;
 	private Integer id;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -121,27 +112,6 @@ public class Customer {
 	public void setEmailConfirmed(Boolean emailConfirmed) {
 		this.emailConfirmed = emailConfirmed;
 	}
-
-	@Column(name = "id_role", unique = false, nullable = false, length = 100)
-	private Integer idRole;
-	@Column(name = "locked", unique = false, nullable = false)
-	private Boolean locked;
-	@Column(name = "fname", unique = false, nullable = false, length = 100)
-	private String firstName;
-	@Column(name = "lname", unique = false, nullable = false, length = 100)
-	private String lastName;
-	@Column(name = "email", unique = true, nullable = false, length = 100)
-	private String email;
-	@Column(name = "login", unique = true, nullable = false, length = 100)
-	private String login;
-	@Column(name = "password", unique = false, nullable = false, length = 100)
-	private String password;
-	private Role role;
-	@Column(name = "email_confirm", unique = false, nullable = false)
-	private Boolean emailConfirmed;
-	@Column(name = "phone", unique = false, nullable = false, length = 100)
-	private String phone;
-
 
 	public void setRole(Role role) {
 		this.role = role;

@@ -255,3 +255,29 @@ html {
     -ms-transform: scale(1.1, 1.1);
     transform: scale(1.1, 1.1);
 }
+
+  .registration_wraper{
+
+	color:#480223;
+	min-width:940px;
+	margin:0 auto;
+	padding-top:0px;
+	text-align:center;	
+	background:url(../images/picture.jpg) no-repeat;
+	min-height: 400px;
+	padding-bottom:20px;
+	display:box;
+	box-align:center;
+	padding-top: 25px;
+	-webkit-background-size: cover;
+	background-size: cover;}
+label {
+	margin-right: 473px;
+}
+.registration_table{
+	color:#480223;
+	position:relative;
+	margin-left:500px;
+	text-align:center;
+}
+

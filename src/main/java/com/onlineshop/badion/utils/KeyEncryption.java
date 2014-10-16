@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 
 public class KeyEncryption {
 
-private static final String defaultSalt = "SoolAndPeres123";
+private static final String defaultSalt = "saltForPassword1";
 	
 	public static String getEncryptedKey (String password, String salt){
 		byte[] encryptedKey = null;
@@ -25,7 +25,6 @@ private static final String defaultSalt = "SoolAndPeres123";
 		
 		return builder.toString();
 		
-		//return new String(encryptedKey);
 	}
 }
 

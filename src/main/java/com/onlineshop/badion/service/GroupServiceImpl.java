@@ -2,7 +2,6 @@ package com.onlineshop.badion.service;
 
 import java.util.List;
 
-import com.onlineshop.badion.dao.GroupDao;
 import com.onlineshop.badion.dao.GroupDaoImpl;
 import com.onlineshop.badion.model.Customer;
 import com.onlineshop.badion.model.Groupp;

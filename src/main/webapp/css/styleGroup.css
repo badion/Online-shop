@@ -52,6 +52,38 @@
   left: 60px; /*position where enlarged image should offset horizontally */  
   }  
   
-  .success {
-  
-  }
+  .main_wraper{
+	color:#480223;
+	min-width:940px;
+	margin:0 auto;
+	padding-top:0px;
+	text-align:center;	
+	background:url(../images/picture.jpg) no-repeat;
+	min-height: 400px;
+	padding-bottom:20px;
+	display:box;
+	box-align:center;
+	padding-top: 25px;
+	-webkit-background-size: cover;
+	background-size: cover;}
+.profile {
+	color:#480223;
+	background:url(../images/picture.jpg) no-repeat;
+	min-height: 400px;
+	padding-bottom:20px;
+	display:box;
+	box-align:center;
+	padding-top: 25px;
+	-webkit-background-size: cover;
+	background-size: cover;
+	
+	
+	
+	}
+.main_table{
+	color:#480223;
+	position:relative;
+	margin-left:50px;
+	text-align:center;
+}
+

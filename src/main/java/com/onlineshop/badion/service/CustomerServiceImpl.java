@@ -2,9 +2,6 @@ package com.onlineshop.badion.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
-import com.onlineshop.badion.dao.AbstractBaseDao;
 import com.onlineshop.badion.dao.CustomerDaoImpl;
 import com.onlineshop.badion.model.Customer;
 
@@ -39,6 +36,10 @@ public class CustomerServiceImpl implements CustomerService {
 
 	public void removeCustomer(Customer customer) {
 		customerDao.removeCustomer(customer);
+	}
+
+	public Customer getCustomerByPhone(String phone) {
+		return customerDao.getCustomerByPhone(phone);
 	}
 
 

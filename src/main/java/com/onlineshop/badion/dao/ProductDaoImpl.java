@@ -8,14 +8,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import com.onlineshop.badion.model.Customer;
-import com.onlineshop.badion.model.Groupp;
 import com.onlineshop.badion.model.Product;
 import com.onlineshop.badion.utils.HibernateUtil;
 
 public class ProductDaoImpl extends AbstractBaseDao implements ProductDao {
 
-	private SessionFactory sessionFactory = null;
 	public void addProduct(Product product) {
 		super.add(product);
 	}
@@ -34,7 +31,6 @@ public class ProductDaoImpl extends AbstractBaseDao implements ProductDao {
 
 	
 	public List<Product> getProductByIdGroup(Integer id) {
-		//return (Product) super.getById(Product.class, id);
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
 		List<Product> product = null;
@@ -43,7 +39,6 @@ public class ProductDaoImpl extends AbstractBaseDao implements ProductDao {
 			Query query = session.createQuery("FROM Product WHERE id_group = :id_group");
 			query.setInteger("id_group", id);
 			product = query.list();
-			
 			transaction.commit();
 		} catch(HibernateException e) {
 			e.printStackTrace();

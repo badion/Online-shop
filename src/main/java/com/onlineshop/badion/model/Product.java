@@ -1,14 +1,9 @@
 package com.onlineshop.badion.model;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Product implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String name;
@@ -16,8 +11,6 @@ public class Product implements Serializable {
 	private String description;
 	private Integer idGroup;
 	private Integer quantity;
-	//private Set<Checkout> checkout = new HashSet<Checkout>(0);
-	
 	
 	public Product(Integer id, String name, Double price, String description,
 			Integer idGroup, Integer quantity) {

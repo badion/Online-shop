@@ -69,8 +69,6 @@ public class AuthorizationServlet extends HttpServlet {
 			HttpServletResponse response) {
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
-		System.out.println("login from request" + login);
-		System.out.println("password from request" + password);
 		HttpSession session = request.getSession();
 
 		if((login == null) || (login.equals("")))  {
@@ -87,7 +85,6 @@ public class AuthorizationServlet extends HttpServlet {
 		CustomerServiceImpl customerService = new CustomerServiceImpl();
 		Customer customer = customerService.getCustomerByLogin(login);
 		
-		System.out.println();
 		
 		if(customer == null) {
 			session.setAttribute("session_login", session);
@@ -103,9 +100,8 @@ public class AuthorizationServlet extends HttpServlet {
 			return null;
 		}
 		
-		System.out.println("Email confirm " + customer.getEmailConfirmed());
 		if (customer.getEmailConfirmed() == false){
-			// mail is not confirmd
+			// mail is not confirm
 			// ERROR MASSAGE
 			session.setAttribute("session_login", login);
 			request.setAttribute("msg", new Message("danger", "Authorization error", "Your mail is not confirmed. Please confirm your mail to login."));
@@ -124,10 +120,8 @@ public class AuthorizationServlet extends HttpServlet {
 	}
 	
 	private boolean checkPass(Customer customer, String password){
-		System.out.println("Input password: " + password + "Email: " + customer.getEmail());
 		password = KeyEncryption.getEncryptedKey(password, customer.getEmail());
 	
-		System.out.println("Encoded password: " + password + "Customer password:" + customer.getPassword());
 		if (password.equals(customer.getPassword())){
 			return true;
 		}

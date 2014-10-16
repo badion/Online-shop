@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.onlineshop.badion.model.PurchasedProducts" table="purchased_products">
+        <id column="id" name="id" type="java.lang.Integer">
+        	<generator class="increment"></generator>
+        </id>
+        <property column="id_customer" name="idCustomer" type="java.lang.Integer" />
+       	<property column="id_order" name="idOrder" type="java.lang.Integer" />
+       	<property column="total_sum" name="totalSum" type="java.lang.Double" />
+        <property column="country" name="country" type="java.lang.String" />
+        <property column="city" name="city" type="java.lang.String" />
+        <property column="address" name="address" type="java.lang.String" />
+        <property column="shipping" name="shipping" type="java.lang.String" />
+    </class>
+</hibernate-mapping>

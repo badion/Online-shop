@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/styleGroup.css" />
 <!-- <link rel="stylesheet" type="text/css" href="css/style.css" /> -->
 
 
@@ -21,14 +22,24 @@
 <script type="text/javascript" src="js/additional-methods.js"></script>
 <script type="text/javascript" src="js/registration.js"></script> 
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<style>
+.jumbotron {
+background-color: white;
+}
+
+</style>
     <title>Online-shop home page</title>
   </head>
   <body>
    	 <jsp:include page="../header/header.jsp"></jsp:include>
+  <div class="main_wraper">
     <div class="jumbotron">
       <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      
+       	<img src="../OnlineShop/images/sale.jpg"/>
+      	<p> Looking for top brand smartphones(Apple, HTC, Samsung, Nokia), or something else?</p>
+        <p> and more are here...</p>
         <p><a class="btn btn-primary btn-lg" role="button" href="mainCategories">Shop now&raquo;</a></p>
       </div>
     </div>
@@ -37,19 +48,19 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>Laptops</h2>
+          <img src="../OnlineShop/images/Laptops.png" width="220px" height="150px"/>
+          <p><a class="btn btn-default" href="http://localhost:8080/OnlineShop/contentFromCategory?name=Laptops" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>Phones</h2>
+            <img src="../OnlineShop/images/Phones.png" width="220px" height="150px"/>
+          <p><a class="btn btn-default" href="http://localhost:8080/OnlineShop/contentFromCategory?name=Phones" role="button">View details &raquo;</a></p>
        </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>Tablets</h2>
+             <img src="../OnlineShop/images/Tablets.png" width="220px" height="150px"/>
+          <p><a class="btn btn-default" href="http://localhost:8080/OnlineShop/contentFromCategory?name=Tablets" role="button">View details &raquo;</a></p>
         </div>
       </div>
 
@@ -57,7 +68,7 @@
      <jsp:include page="../footer/footer.jsp"/>
      
     </div> <!-- /container -->
-
+</div>
 
   </body>
 </html>

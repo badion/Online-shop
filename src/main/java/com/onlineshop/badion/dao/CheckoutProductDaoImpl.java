@@ -7,7 +7,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.onlineshop.badion.model.CheckoutProduct;
-import com.onlineshop.badion.model.Customer;
 import com.onlineshop.badion.utils.HibernateUtil;
 
 public class CheckoutProductDaoImpl extends AbstractBaseDao implements CheckoutProductDao {

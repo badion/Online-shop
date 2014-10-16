@@ -2,7 +2,6 @@ package com.onlineshop.badion.dao;
 
 import java.util.List;
 
-import com.onlineshop.badion.model.Customer;
 import com.onlineshop.badion.model.Product;
 
 public interface ProductDao {

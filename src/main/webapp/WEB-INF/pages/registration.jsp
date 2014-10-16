@@ -20,17 +20,17 @@
 <body>
 	<jsp:include page="../header/header.jsp"></jsp:include>
 	<!-- Example row of columns -->
-	<div class="jumbotron">
-	<div class="container">
+<br>
+<div class="registration_wraper">
 		<div class="row">
 			<h1 align="center">Registration form</h1>
 			<form action="registration" id="registrationId" method="post">
-				<fieldset>
+				<fieldset class="registration_table">
 
 					<div class="form-group">
 						<label class="control-label" for="firstName">First name:</label>
 						<div class="input-group">
-							<input type="text" name="firstName" id="firstName" size="40px"
+							<input type="text" name="firstName" id="firstName" size="45px"
 								class="form-control" value="${firstName}"
 								placeholder="Enter your first name" />
 						</div>
@@ -38,7 +38,7 @@
 					<div class="form-group">
 						<label class="control-label" for="lastName">Last name:</label>
 						<div class="input-group">
-							<input type="text" name="lastName" size="40px"
+							<input type="text" name="lastName" size="45px"
 								class="form-control" value="${lastName}"
 								placeholder="Enter your second name" />
 						</div>
@@ -46,21 +46,21 @@
 					<div class="form-group">
 						<label class="control-label" for="phone">Phone:</label>
 						<div class="input-group">
-							<input type="text" name="phone" size="40px" class="form-control"
+							<input type="text" name="phone" size="45px" class="form-control"
 								value="${phone}" placeholder="Enter your phone number" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label" for="email">Email:</label>
 						<div class="input-group">
-							<input type="text" name="email" size="40px" class="form-control"
+							<input type="text" name="email" size="45px" class="form-control"
 								value="${email}" placeholder="Enter your email" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label" for="login">Login:</label>
 						<div class="input-group">
-							<input type="text" name="login" size="40px" class="form-control"
+							<input type="text" name="login" size="45px" class="form-control"
 								value="${login}" placeholder="Enter your future login" />
 						</div>
 					</div>
@@ -68,7 +68,7 @@
 						<label class="control-label" for="password">Password:</label>
 						<div class="input-group">
 							<input type="password" name="password" id="passwordId"
-								size="40px" class="form-control" value="${password}"
+								size="45px" class="form-control" value="${password}"
 								placeholder="Enter your future password" />
 						</div>
 					</div>
@@ -76,7 +76,7 @@
 						<label class="control-label" for="repeatPassword">Repeat
 							password:</label>
 						<div class="input-group">
-							<input type="password" name="repeatPassword" size="40px"
+							<input type="password" name="repeatPassword" size="45px"
 								class="form-control" value="${repeatPassword}"
 								placeholder="Repeat your password" />
 						</div>
@@ -86,7 +86,8 @@
 				<input type="submit" class="btn btn-success" value="registration" />
 			</form>
 		</div>
+		
 		<jsp:include page="../footer/footer.jsp" />
 	</div>
-	</div>
+	</body>
 </html>

@@ -4,6 +4,38 @@
 	<welcome-file-list>
 		<welcome-file>home</welcome-file>
 	</welcome-file-list>
+	<filter>
+		<description>
+		</description>
+		<display-name>EncodingFilter</display-name>
+		<filter-name>EncodingFilter</filter-name>
+		<filter-class>com.onlineshop.badion.filters.EncodingFilter</filter-class>
+		<init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+	</filter>
+	<filter>
+		<description>
+		</description>
+		<display-name>UnregisterFilter</display-name>
+		<filter-name>UnregisterFilter</filter-name>
+		<filter-class>com.onlineshop.badion.filters.UnregisterFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>EncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>UnregisterFilter</filter-name>
+		<url-pattern>/ordering</url-pattern>
+		<url-pattern>/clearCart</url-pattern>
+		<url-pattern>/userProfile</url-pattern>
+		<url-pattern>/orderSuccess</url-pattern>
+		<url-pattern>/changeEmail</url-pattern>
+		<url-pattern>/changePassword</url-pattern>
+	</filter-mapping>
 	<servlet>
 		<servlet-name>RegistrationSevlet</servlet-name>
 		<servlet-class>com.onlineshop.badion.servlet.registration.RegistrationSevlet
@@ -53,16 +85,51 @@
 	<servlet>
 		<description>
 		</description>
-		<display-name>ShoppingCartServlet</display-name>
-		<servlet-name>ShoppingCartServlet</servlet-name>
-		<servlet-class>com.onlineshop.badion.servlet.ShoppingCartServlet</servlet-class>
+		<display-name>ClearCart</display-name>
+		<servlet-name>ClearCart</servlet-name>
+		<servlet-class>com.onlineshop.badion.servlet.ClearCart</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
 		</description>
-		<display-name>ClearCart</display-name>
-		<servlet-name>ClearCart</servlet-name>
-		<servlet-class>com.onlineshop.badion.servlet.ClearCart</servlet-class>
+		<display-name>OrderingServlet</display-name>
+		<servlet-name>OrderingServlet</servlet-name>
+		<servlet-class>com.onlineshop.badion.servlet.OrderingServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>UserProfile</display-name>
+		<servlet-name>UserProfile</servlet-name>
+		<servlet-class>com.onlineshop.badion.servlet.UserProfile</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ChangePasswordServlet</display-name>
+		<servlet-name>ChangePasswordServlet</servlet-name>
+		<servlet-class>com.onlineshop.badion.servlet.ChangePasswordServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ChangeEmailServlet</display-name>
+		<servlet-name>ChangeEmailServlet</servlet-name>
+		<servlet-class>com.onlineshop.badion.servlet.ChangeEmailServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>OrderSuccess</display-name>
+		<servlet-name>OrderSuccess</servlet-name>
+		<servlet-class>com.onlineshop.badion.servlet.OrderSuccess</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AccessDenied</display-name>
+		<servlet-name>AccessDenied</servlet-name>
+		<servlet-class>com.onlineshop.badion.errorpage.AccessDenied</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>HomePageServlet</servlet-name>
@@ -85,11 +152,39 @@
 		<url-pattern>/contentFromCategory</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>ShoppingCartServlet</servlet-name>
-		<url-pattern>/shoppingCart</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
 		<servlet-name>ClearCart</servlet-name>
 		<url-pattern>/clearCart</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OrderingServlet</servlet-name>
+		<url-pattern>/ordering</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserProfile</servlet-name>
+		<url-pattern>/userProfile</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ChangePasswordServlet</servlet-name>
+		<url-pattern>/changePassword</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ChangeEmailServlet</servlet-name>
+		<url-pattern>/changeEmail</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OrderSuccess</servlet-name>
+		<url-pattern>/orderSuccess</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AccessDenied</servlet-name>
+		<url-pattern>/accessDenied</url-pattern>
+	</servlet-mapping>
+	<error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/pages/404.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>PageNotFoundException</exception-type>
+    <location>/WEB-INF/pages/404.jsp</location>
+  </error-page>
 </web-app>

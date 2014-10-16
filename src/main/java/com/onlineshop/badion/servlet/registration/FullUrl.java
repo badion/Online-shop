@@ -1,6 +1,5 @@
 package com.onlineshop.badion.servlet.registration;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
 public class FullUrl {

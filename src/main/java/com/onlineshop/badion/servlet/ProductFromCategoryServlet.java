@@ -1,6 +1,7 @@
 package com.onlineshop.badion.servlet;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -24,7 +25,6 @@ import com.onlineshop.badion.service.ProductServiceImpl;
 
 public class ProductFromCategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private final String message = "add";
     
     private CheckoutProductDaoImpl checkoutProductDaoImpl = new CheckoutProductDaoImpl(); // many products in 1 checkout
     private CheckoutServiceImpl checkoutServiceImpl = new CheckoutServiceImpl();	// 1 checkout
@@ -88,6 +88,9 @@ public class ProductFromCategoryServlet extends HttpServlet {
  					checkoutServiceImpl.addOrder(checkout);
  					
  					shoppingCart.setIdCheckout(checkout.getId());
+ 					SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+ 					String dateToday = sdf.format(new Date());
+ 					shoppingCart.setDate(dateToday);
  					//*****************************************
  					
  					//ADD CHECKOUTPRODUCT
@@ -96,8 +99,6 @@ public class ProductFromCategoryServlet extends HttpServlet {
  					checkoutProduct.setIdProduct(product.getId());
  					checkoutProductDaoImpl.addOrder(checkoutProduct);
  					shoppingCart.setIdCheckoutProduct(checkoutProduct.getId());
- 					System.out.println("When add checkout product" + checkoutProduct);
- 					System.out.println("When add from db chProduct" + checkoutProductDaoImpl.listOrders());
  					//************************************************
  					
  					List<ShoppingCart> shoppingCartList = new ArrayList<ShoppingCart>();
@@ -110,7 +111,6 @@ public class ProductFromCategoryServlet extends HttpServlet {
  	 				shoppingCart.setIdGroup(product.getIdGroup());
  					shoppingCartList.add(shoppingCart);
  					
- 					System.out.println("product if prevProduct == null" + shoppingCartList);
  					session.setAttribute("prevProduct", shoppingCartList);
  					session.setAttribute("checkout", checkout);
  					
@@ -136,7 +136,6 @@ public class ProductFromCategoryServlet extends HttpServlet {
  				} else {
  					
  					Checkout checkout = (Checkout) session.getAttribute("checkout");
- 					System.out.println("Checkout if prevProduct != null" + checkout);
  					
  					//Add in checkout_product
  					//******************************************************
@@ -156,7 +155,6 @@ public class ProductFromCategoryServlet extends HttpServlet {
  					*/
  					
  					shoppingCartList.add(shoppingCart);
- 					System.out.println("product if prevProduct != null" + shoppingCartList);
  					//****************************************************************
  					
  					//Calculate sum

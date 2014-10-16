@@ -3,16 +3,12 @@ package com.onlineshop.badion.model;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.persistence.Table;
-
 import com.onlineshop.badion.service.RoleServiceImpl;
 
-@Table(name="role")
 public class Role {
 	
 	private Integer id;
 	private String name;
-	
 	private static List<Role> listOfAll;
 	private static HashMap<Integer, Role> mapById = new HashMap<Integer, Role>();
 	private static HashMap<String, Role> mapByName = new HashMap<String, Role>();

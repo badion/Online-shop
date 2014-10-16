@@ -19,6 +19,7 @@
 		<property name="hibernate.c3p0.max_statements">50</property>
 		<property name="hibernate.c3p0.idle_test_period">4000</property>
 	 
+	 	<mapping resource="com/onlineshop/badion/model/PurchasedProducts.hbm.xml" />
 	 	<mapping resource="com/onlineshop/badion/model/CheckoutProduct.hbm.xml"/>
         <mapping resource="com/onlineshop/badion/model/Checkout.hbm.xml" />
         <mapping resource="com/onlineshop/badion/model/Customer.hbm.xml" />

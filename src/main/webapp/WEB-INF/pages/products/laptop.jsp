@@ -22,11 +22,10 @@
 
 	<jsp:include page="../../header/header.jsp"></jsp:include>
 	
-	<br>
-	<br>
 	
 
 	<br>
+	<div class="main_wraper">
 	<div class="container">
 <c:if test="${param.message != null}">	
  <script>alert('Product is successfully add to the basket');</script>
@@ -46,7 +45,7 @@
 								<button type="button" class="close" data-dismiss="modal">
 									<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 								</button>								     
-									<h4 class="modal-title" id="myModalLabel">${productList.get(products).name}</h4>
+									<h4 class="modal-title">${productList.get(products).name}</h4>
 							</div>
 							<div class="modal-body">
 								<table>
@@ -67,12 +66,18 @@
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
-								<c:if test="${productList.get(products).quantity > 0}">
-								<a type="button" href="contentFromCategory?productId=${productList.get(products).id}" class="btn btn-primary">Add to basket</a>
-								</c:if>	
-								<c:if test="${productList.get(products).quantity <= 0}">
-								<a>Sorry, but we haven't this model yet.</a>
-								</c:if>
+								<c:choose>
+								<c:when test="${customer == null}">
+									You can't buy. First you have to register and log in system.
+								</c:when>
+								<c:when test="${customer != null && productList.get(products).quantity > 0}">
+									<a type="button" href="contentFromCategory?productId=${productList.get(products).id}" onclick="alert('${productList.get(products).name} is successfully add in shopping cart');" class="btn btn-primary">Add to basket</a>
+								</c:when>
+								<c:when test="${productList.get(products).quantity <= 0}">
+									<a>Sorry, but we haven't this model yet.</a>
+								</c:when>
+								</c:choose>
+								
 							</div>
 						</div>
 					</div>
@@ -130,4 +135,5 @@
 	</div>
 
 	<jsp:include page="../../footer/footer.jsp" />
+	</div>
 </html>

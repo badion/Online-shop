@@ -23,7 +23,6 @@ public class ConfirmServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		int id = Integer.parseInt(request.getParameter("id"));
 		Customer customer = new CustomerServiceImpl().getCustomerById(id);
-		System.out.println("id from mail:" + new CustomerServiceImpl().getCustomerById(id));
 		
 		if(customer != null) {
 			customer.setEmailConfirmed(true);
